@@ -1,12 +1,20 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export function HomeScreen() {
+  const navigation = useNavigation<any>();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🏐 VTeam</Text>
       <Text style={styles.subtitle}>
         Organize seus jogos de vôlei com facilidade
       </Text>
+
+      <Button
+        title="Ver Jogadores"
+        onPress={() => navigation.navigate("Players")}
+      />
     </View>
   );
 }
@@ -24,5 +32,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     marginTop: 10,
+    marginBottom: 20,
   },
 });
